@@ -1,10 +1,14 @@
 package com.geeks.calculator;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.content.Intent;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -18,20 +22,32 @@ public class MainActivity extends AppCompatActivity {
     private double a, b;
     private boolean isOperationClick;
     private String operation;
+    private Button hiddenButton;
+    private double result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+//            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+//            return insets;
+//        });
 
         textView = findViewById(R.id.text_view);
+        hiddenButton = findViewById(R.id.hiddenButton);
+
+        hiddenButton.setOnClickListener(v -> {
+
+            Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+            startActivity(intent);
+        });
+
     }
+
+
 
     public void onNumberClick(View view) {
         String text = ((MaterialButton) view).getText().toString();
@@ -44,6 +60,9 @@ public class MainActivity extends AppCompatActivity {
         } else {
             textView.append(text);
         }
+       hiddenButton.setVisibility(View.INVISIBLE);
+
+        hiddenButton.setVisibility(View.INVISIBLE);
         isOperationClick = false;
     }
 
@@ -75,10 +94,10 @@ public class MainActivity extends AppCompatActivity {
                 result = a * b;
             } else if ("%".equals(operation)) {
                 result = a / 100;
-                if (view.getId() == R.id.btn_procent){
+                if (view.getId() == R.id.btn_procent) {
                     if (result == (int) result) {
-                        textView.setText(String.valueOf((int)result));
-                    }else {
+                        textView.setText(String.valueOf((int) result));
+                    } else {
                         textView.setText(String.valueOf(result));
                     }
                 }
@@ -92,11 +111,19 @@ public class MainActivity extends AppCompatActivity {
             }
 
             if (result == (int) result) {
-                textView.setText(String.valueOf((int)result));
-            }else {
+                textView.setText(String.valueOf((int) result));
+            } else {
                 textView.setText(String.valueOf(result));
             }
+
+
+            hiddenButton.setVisibility(View.VISIBLE);
+            hiddenButton.setEnabled(true);
+
         }
         isOperationClick = true;
     }
+
+
+
 }

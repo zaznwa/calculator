@@ -1,0 +1,22 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Задний фон (непрогрессивная часть) -->
+    <item android:id="@android:id/background">
+        <shape>
+            <solid android:color="#E0E0E0" />
+            <size android:height="8dp" />
+            <corners android:radius="4dp" />
+        </shape>
+    </item>
+
+    <!-- Прогрессивная часть -->
+    <item android:id="@android:id/progress">
+        <shape>
+            <gradient
+                android:startColor="#FF4081"
+                android:endColor="#448AFF"
+                android:angle="0" />
+            <size android:height="8dp" />
+            <corners android:radius="4dp" />
+        </shape>
+    </item>
+</layer-list>
