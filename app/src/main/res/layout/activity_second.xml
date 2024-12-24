@@ -194,12 +194,12 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_finish"
         android:layout_width="343dp"
-
+android:onClick="offActivities"
         android:layout_height="47dp"
         android:layout_marginTop="25dp"
         android:background="@drawable/bg_button"
         android:lineHeight="30sp"
-        android:text="Next"
+        android:text="FINISH"
         android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -237,12 +237,62 @@
         app:layout_constraintTop_toTopOf="@+id/spinner" />
 
     <SeekBar
+        android:id="@+id/seekBar2"
         android:layout_width="177dp"
         android:layout_height="14dp"
+        android:layout_marginTop="20dp"
         android:progressDrawable="@drawable/custom_progress"
         android:thumb="@drawable/custom_thumb"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/spinner"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+
+    <ImageButton
+        android:id="@+id/btnImg"
+        android:layout_width="304dp"
+        android:layout_height="176dp"
+        android:layout_marginTop="20dp"
+        android:onClick="nextActivities"
+        android:padding="0dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toTopOf="@+id/btn_next"
+        app:layout_constraintEnd_toEndOf="@+id/seekBar2"
+        app:layout_constraintHorizontal_bias="0.365"
+        app:layout_constraintStart_toStartOf="@+id/spinner"
+        app:layout_constraintTop_toBottomOf="@+id/spinner"
+        app:layout_constraintVertical_bias="0.843" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_next"
+        android:layout_width="343dp"
+        android:layout_height="47dp"
+        android:background="@drawable/bg_button"
+        android:lineHeight="30sp"
+        android:onClick="nextActivities"
+        android:text="OPEN MAP"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="10dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_calculator"
+        android:layout_width="343dp"
+        android:layout_height="47dp"
+        android:layout_marginBottom="240dp"
+        android:background="@drawable/bg_button"
+        android:lineHeight="30sp"
+        android:onClick="onCalculator"
+        android:text="Open calculator"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

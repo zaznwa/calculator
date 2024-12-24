@@ -127,6 +127,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         if (hasLocationPermission()) {
             mMap.setMyLocationEnabled(true);
         }
+        LatLng bishkek = new LatLng(42.89262484297825, 74.57544553880403);
+        mMap.addMarker(new MarkerOptions().position(bishkek).title("Мой дом"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bishkek, 13));
     }
 
     // Включение местоположения
